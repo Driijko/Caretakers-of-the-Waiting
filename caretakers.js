@@ -1,4 +1,7 @@
+// Initialize Variables
 let mode;
+let openingPrompts;
+let windowObj;
 
 function preload() {
 
@@ -11,9 +14,22 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 
-  mode = "openingPrompt";
+  // Define Variables
+  openingPrompts = new OpeningPrompts();
+  windowObj = new Window();
+  windowObj.set();
+  window.addEventListener("resize", ()=> {}));
+
+  mode = "openingPrompts";
 }
+
+
 
 function draw() {
 
+
+  if (mode === "openingPrompts") {
+    openingPrompts.display();
+    text(`${windowObj.verCenter}`, 50, 50);
+  }
 }
