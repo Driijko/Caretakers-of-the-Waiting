@@ -17,6 +17,9 @@ let auAct5;
 // Images //////////////////////////////////////////////////////////
 // Icons
 let imPlayButton;
+let imPauseButton;
+let imMuteButton;
+let imFullVolumeButton;
 
 function preload() {
   auStartButton = loadSound("./assets/audio/startButton.wav");
@@ -29,7 +32,11 @@ function preload() {
   // auAct4 = loadSound("./assets/audio/acts and music/act4.mp3");
   // auAct5 = loadSound("./assets/audio/acts and music/act5.mp3");
 
+  // Audio Player Icons
   imPlayButton = loadImage("./assets/images/icons/play.svg");
+  imPauseButton = loadImage("./assets/images/icons/pause.svg");
+  imMuteButton = loadImage("./assets/images/icons/mute.svg");
+  imFullVolumeButton = loadImage("./assets/images/icons/fullVolume.svg");
 }
 
 
