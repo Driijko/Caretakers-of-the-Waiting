@@ -2,7 +2,7 @@ function OpeningPrompts() {
 
   let startButtonClicked = false;
   
-  // Create Prompts and FadeOut
+  // Create Prompts and FadeOut (for FadeOut see helperfunctions.js)
   const fullScreenPrompt = new Prompt("Enable Fullscreen?", 0);
   const audioPrompt = new Prompt("Enable Audio?", 150);
   const fadeOutTime = 60;
@@ -81,7 +81,9 @@ function OpeningPrompts() {
         fadeOut.start = true;
 
         // Sound effect
-        auStartButton.play();
+        if (audioPrompt.selection === "yes") {
+          auStartButton.play();
+        }
 
       }
     }
@@ -90,10 +92,19 @@ function OpeningPrompts() {
     }
 
     if (fadeOutTime === fadeOut.timer) {
+
+      // If user has selected fullscreen option, transistion to fullscreen
       if (fullScreenPrompt.selection === "yes") {
-        transistionToFullScreen();
+        transistionToFullScreen(); // see helperfunctions.js
       }
-      mode = "openingAnimation";
+      
+
+      // If user has selected enable audio option, begin playing theme music
+      if (audioPrompt.selection === "yes") {
+        audioPlayer.play(auAct5);
+      }
+
+      mode = "opening animation";
     }    
   }
 }
