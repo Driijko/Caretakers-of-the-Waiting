@@ -6,6 +6,11 @@ function Button(word, x, y) {
     strokeWeight(5);
     stroke(255);
     fill(0);
-    rect()
+    rect(x, y, 100, 50);
+
+    // Button Text
+    noStroke();
+    fill(255);
+    text(word, x, y, 100, 50);
   }
 }

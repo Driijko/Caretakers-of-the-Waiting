@@ -13,7 +13,6 @@ function setup() {
   // Initial view
   document.documentElement.style.overflow = "hidden";
   createCanvas(windowWidth, windowHeight);
-  background(0);
 
   // Define Variables
   openingPrompts = new OpeningPrompts();
@@ -31,5 +30,6 @@ function draw() {
 
   if (mode === "openingPrompts") {
     openingPrompts.display();
+    openingPrompts.input();
   }
 }
