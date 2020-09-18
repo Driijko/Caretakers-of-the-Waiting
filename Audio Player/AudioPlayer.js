@@ -14,6 +14,12 @@ function AudioPlayer() {
             strokeWeight(5);
             fill(0);
             rect(10, height - 210, 300, 200);
+
+            strokeWeight(1);
+            line(10, height - 160, 310, height - 160);
+            line(10, height - 110, 310, height - 110);
+            line(10, height - 60, 310, height - 60);
+
         }
 
     }
