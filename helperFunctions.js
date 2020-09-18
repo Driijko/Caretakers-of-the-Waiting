@@ -8,3 +8,8 @@ function collidePointRect(pointX, pointY, x, y, xW, yW) {
     }
     return false;
 }
+
+function transistionToFullScreen() {
+    resizeCanvas(screen.width, screen.height);
+    fullscreen(true);
+}

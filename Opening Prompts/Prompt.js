@@ -22,8 +22,27 @@ function Prompt(prompt, offset) {
   }
 
   this.input = function() {
-    if (collidePointRect(mouseX, mouseY, (width/2) - 125, (height/2) - 140 + offset, 100, 50)) {
 
+    // Button Inputs
+    yesButton.input();
+    noButton.input();
+
+    // Selection
+    if (yesButton.clicked) {
+      this.selection = "yes";
     }
+    else if (noButton.clicked) {
+      this.selection = "no";
+    }
+
+    if (this.selection === "yes") {
+      yesButton.selected = true;
+      noButton.selected = false;
+    }
+    else if (this.selection === "no") {
+      noButton.selected = true;
+      yesButton.selected = false;
+    }
+
   }
 }

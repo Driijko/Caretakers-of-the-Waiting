@@ -2,8 +2,11 @@
 let mode;
 let openingPrompts;
 
-function preload() {
+// Audio
+let auStartButton;
 
+function preload() {
+  auStartButton = loadSound("./assets/audio/startButton.wav");
 }
 
 
