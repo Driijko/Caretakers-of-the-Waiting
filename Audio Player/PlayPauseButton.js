@@ -2,7 +2,7 @@ function PlayPauseButton(layout) {
 
     if (layout === 0) {
         this.x = 15;
-        this.y = height - 205;
+        this.y = height - 175;
         this.size = 40;
     }
 

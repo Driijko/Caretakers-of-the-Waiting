@@ -29,7 +29,7 @@ function preload() {
   // auAct4 = loadSound("./assets/audio/acts and music/act4.mp3");
   // auAct5 = loadSound("./assets/audio/acts and music/act5.mp3");
 
-  imPlayButton = loadImage("./assets/images/icons/play-button.svg");
+  imPlayButton = loadImage("./assets/images/icons/play.svg");
 }
 
 

@@ -7,6 +7,7 @@ function AudioPlayer() {
     // Create parts of audio player
     const playPauseButton = new PlayPauseButton(this.layout);
     const playblackSlider = new PlaybackSlider(this.layout);
+    const timer = new Timer(this.layout);
 
 
 
@@ -20,18 +21,18 @@ function AudioPlayer() {
             // Audio Player outline
             stroke(255);
             strokeWeight(5);
-            noStroke();
             fill(0);
-            rect(10, height - 210, 300, 200);
+            rect(10, height - 180, 300, 170);
 
             strokeWeight(1);
-            line(10, height - 160, 310, height - 160);
+            line(10, height - 130, 310, height - 130);
             line(10, height - 110, 310, height - 110);
             line(10, height - 60, 310, height - 60);
 
             // Display parts
             playPauseButton.display();
             playblackSlider.display();
+            timer.display();
 
         }
 
