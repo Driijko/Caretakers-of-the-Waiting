@@ -14,6 +14,10 @@ let auAct3;
 let auAct4;
 let auAct5;
 
+// Images //////////////////////////////////////////////////////////
+// Icons
+let imPlayButton;
+
 function preload() {
   auStartButton = loadSound("./assets/audio/startButton.wav");
 
@@ -24,6 +28,8 @@ function preload() {
   // auAct3 = loadSound("./assets/audio/acts and music/act3.mp3");
   // auAct4 = loadSound("./assets/audio/acts and music/act4.mp3");
   // auAct5 = loadSound("./assets/audio/acts and music/act5.mp3");
+
+  imPlayButton = loadImage("./assets/images/icons/play-button.svg");
 }
 
 

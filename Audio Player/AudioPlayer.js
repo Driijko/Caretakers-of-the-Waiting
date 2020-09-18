@@ -4,12 +4,19 @@ function AudioPlayer() {
         this.layout = 0;
     }
 
+    // Create parts of audio player
+    const playPauseButton = new PlayPauseButton(this.layout);
+
+
+
 
 
     this.display = function() {
 
         // Layout 0
         if (this.layout === 0) {
+
+            // Audio Player outline
             stroke(255);
             strokeWeight(5);
             fill(0);
@@ -19,6 +26,9 @@ function AudioPlayer() {
             line(10, height - 160, 310, height - 160);
             line(10, height - 110, 310, height - 110);
             line(10, height - 60, 310, height - 60);
+
+            // Display parts
+            playPauseButton.display();
 
         }
 
