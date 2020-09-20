@@ -3,7 +3,7 @@ function PlaybackSlider(layout) {
     // Layout 0
     if (layout === 0) {
         this.barLength = 220;
-        this.barX = 80;
+        this.barX = (width/2) - 90;
         this.barY = 315;
     }
 

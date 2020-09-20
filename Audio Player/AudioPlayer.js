@@ -1,8 +1,14 @@
 function AudioPlayer() {
 
-    if (width <= 320) {
+    // Layout
+    // The layout variable is assigned an integer which identifies
+    // what type of layout we want for the audio player's display.
+    // This value is passed on to each part of the audio player so that
+    // each part positions itself accordingly.
+    if (width <= 640) {
         this.layout = 0;
     }
+    
 
     // Create parts of audio player
     const playPauseButton = new PlayPauseButton(this.layout);
@@ -10,6 +16,7 @@ function AudioPlayer() {
     const timer = new Timer(this.layout);
     const muteFullVolumeButton = new MuteFullVolumeButton(this.layout);
     const volumeSlider = new VolumeSlider(this.layout);
+    const trackTitle = new TrackTitle(this.layout);
 
     this.display = function() {
 
@@ -20,11 +27,11 @@ function AudioPlayer() {
             stroke(255);
             strokeWeight(5);
             fill(0);
-            rect(10, height - 180, 300, 170);
+            rect((width/2) - 150, height - 180, 300, 170);
 
             strokeWeight(1);
-            line(10, height - 110, 310, height - 110);
-            line(10, height - 60, 310, height - 60);
+            line((width/2) - 150, height - 110, 355, height - 110);
+            line((width/2) - 150, height - 60, 355, height - 60);
 
             // Display parts
             playPauseButton.display();
@@ -32,7 +39,7 @@ function AudioPlayer() {
             timer.display();
             muteFullVolumeButton.display();
             volumeSlider.display();
-
+            trackTitle.display();
         }
 
     }
