@@ -1,11 +1,6 @@
 function VolumeSlider(layout) {
 
-    // Respond to layout
-    if (layout === 0) {
-        this.barLength = 220;
-        this.barX = (width/2) - 80;
-        this.barY = height - 95;
-    }
+    this.layout = layout;
 
     this.display = function() {
 
@@ -13,6 +8,9 @@ function VolumeSlider(layout) {
         fill(0);
         strokeWeight(3);
         stroke(255);
-        rect(this.barX, this.barY, this.barLength, 20);
+
+        if(this.layout === 0) {
+            rect((width/2) - 80, height - 95, 220, 20);
+        }
     }
 }

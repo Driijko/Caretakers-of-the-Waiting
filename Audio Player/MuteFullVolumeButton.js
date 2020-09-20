@@ -1,13 +1,10 @@
 function MuteFullVolumeButton(layout) {
 
-    // Ajdust to layout
-    if (layout === 0) {
-        this.x = (width/2) - 140;
-        this.y = height - 105;
-        this.size = 40;
-    }
+    this.layout = layout;
 
     this.display = function() {
-        image(imMuteButton, this.x, this.y, this.size, this.size);
+        if (this.layout === 0) {
+            image(imMuteButton, (width/2) - 140, height - 105, 40, 40)
+        }
     }
 }

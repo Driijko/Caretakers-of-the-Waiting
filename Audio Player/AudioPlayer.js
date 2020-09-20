@@ -8,6 +8,9 @@ function AudioPlayer() {
     if (width <= 640) {
         this.layout = 0;
     }
+    else {
+        this.layout = 1;
+    }
     
 
     // Create parts of audio player
@@ -20,23 +23,26 @@ function AudioPlayer() {
 
     this.display = function() {
 
+        // Audio Player outline
+        stroke(255);
+        strokeWeight(5);
+        fill(0);
+
         // Layout 0
         if (this.layout === 0) {
-
-            // Audio Player outline
-            stroke(255);
-            strokeWeight(5);
-            fill(0);
             rect((width/2) - 150, height - 190, 300, 180);
-
-            // Display parts
-            playPauseButton.display();
-            playblackSlider.display();
-            timer.display();
-            muteFullVolumeButton.display();
-            volumeSlider.display();
-            trackTitle.display();
         }
+        else if (this.layout === 1) {
+            rect((width/2) - 310, height - 110, 620, 100)
+        }
+
+        // Display parts
+        playPauseButton.display();
+        playblackSlider.display();
+        timer.display();
+        muteFullVolumeButton.display();
+        volumeSlider.display();
+        trackTitle.display();
 
     }
 }
