@@ -1,10 +1,10 @@
-function PlaybackSlider(layout) {
-    
-    // Layout 0
+function VolumeSlider(layout) {
+
+    // Respond to layout
     if (layout === 0) {
         this.barLength = 220;
         this.barX = 80;
-        this.barY = 315;
+        this.barY = 385;
     }
 
     this.display = function() {

@@ -9,6 +9,7 @@ function AudioPlayer() {
     const playblackSlider = new PlaybackSlider(this.layout);
     const timer = new Timer(this.layout);
     const muteFullVolumeButton = new MuteFullVolumeButton(this.layout);
+    const volumeSlider = new VolumeSlider(this.layout);
 
     this.display = function() {
 
@@ -30,6 +31,7 @@ function AudioPlayer() {
             playblackSlider.display();
             timer.display();
             muteFullVolumeButton.display();
+            volumeSlider.display();
 
         }
 
