@@ -5,7 +5,7 @@ function TrackTitle(layout) {
     // Respond to layout
     if (layout === 0) {
         this.x = (width/2) - 150;
-        this.y = 420;
+        this.y = height - 60;
         this.length = 300;
     }
 
