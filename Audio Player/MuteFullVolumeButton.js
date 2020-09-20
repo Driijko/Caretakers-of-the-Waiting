@@ -2,7 +2,7 @@ function MuteFullVolumeButton(layout) {
 
     // Ajdust to layout
     if (layout === 0) {
-        this.x = (width/2) - 145;
+        this.x = (width/2) - 140;
         this.y = height - 105;
         this.size = 40;
     }

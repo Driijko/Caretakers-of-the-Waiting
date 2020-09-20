@@ -1,7 +1,7 @@
 function Timer(layout) {
 
     if (layout === 0) {
-        this.x = 100;
+        this.x = (width/2) - 80;
         this.y = 335;
         this.width = 200;
         this.height = 30;

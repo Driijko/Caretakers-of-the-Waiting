@@ -27,11 +27,7 @@ function AudioPlayer() {
             stroke(255);
             strokeWeight(5);
             fill(0);
-            rect((width/2) - 150, height - 180, 300, 170);
-
-            strokeWeight(1);
-            line((width/2) - 150, height - 110, 355, height - 110);
-            line((width/2) - 150, height - 60, 355, height - 60);
+            rect((width/2) - 150, height - 190, 300, 180);
 
             // Display parts
             playPauseButton.display();

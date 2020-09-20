@@ -3,7 +3,7 @@ function VolumeSlider(layout) {
     // Respond to layout
     if (layout === 0) {
         this.barLength = 220;
-        this.barX = 80;
+        this.barX = (width/2) - 80;
         this.barY = 385;
     }
 
