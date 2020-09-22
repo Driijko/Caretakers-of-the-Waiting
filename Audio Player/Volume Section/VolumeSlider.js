@@ -16,11 +16,11 @@ function VolumeSlider(layout) {
         stroke(255);
 
         if(this.layout === 0) {
-            rect((width/2) - 80, height - 95, 220, 20);
+            rect((width/2) - 85, height - 95, 220, 20);
             ellipse(this.sliderX, height - 85, 20, 20);
         }
         else if(this.layout === 1) {
-            rect((width/2) + 130, height - 90, 220, 20);
+            rect((width/2) + 125, height - 90, 220, 20);
             ellipse(this.sliderX, height - 80, 20, 20);
         }
     }

@@ -16,7 +16,7 @@ function PlaybackSlider(layout) {
         stroke(255);
 
         if (this.layout === 0) {
-            rect((width/2) - 80, height - 165, 220, 20);
+            rect((width/2) - 85, height - 165, 220, 20);
             ellipse(this.sliderX, height - 155, 20, 20);
         }
         else if (this.layout === 1) {
