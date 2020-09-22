@@ -14,9 +14,7 @@ function AudioPlayer() {
     
 
     // Create parts of audio player
-    const playPauseButton = new PlayPauseButton(this.layout);
-    const playblackSlider = new PlaybackSlider(this.layout);
-    const timer = new Timer(this.layout);
+    const playbackSection = new PlaybackSection(this.layout);
     const muteFullVolumeButton = new MuteFullVolumeButton(this.layout);
     const volumeSlider = new VolumeSlider(this.layout);
     const trackTitle = new TrackTitle(this.layout);
@@ -37,9 +35,7 @@ function AudioPlayer() {
         }
 
         // Display parts
-        playPauseButton.display();
-        playblackSlider.display();
-        timer.display();
+        playbackSection.display();
         muteFullVolumeButton.display();
         volumeSlider.display();
         trackTitle.display();
