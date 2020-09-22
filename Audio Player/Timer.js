@@ -11,5 +11,8 @@ function Timer(layout) {
         if (this.layout === 0) {
             text("00:06 / 32:38", (width/2) - 80, height - 140, 200, 30);
         }
+        else if (this.layout === 1) {
+            text("00:06 / 32: 38", (width/2) - 15, height - 80, )
+        }
     }
 }

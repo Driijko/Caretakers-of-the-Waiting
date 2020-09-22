@@ -5,7 +5,7 @@ function AudioPlayer() {
     // what type of layout we want for the audio player's display.
     // This value is passed on to each part of the audio player so that
     // each part positions itself accordingly.
-    if (width <= 640) {
+    if (width < 740) {
         this.layout = 0;
     }
     else {
@@ -33,7 +33,7 @@ function AudioPlayer() {
             rect((width/2) - 150, height - 190, 300, 180);
         }
         else if (this.layout === 1) {
-            rect((width/2) - 310, height - 110, 620, 100)
+            rect((width/2) - 360, height - 110, 720, 100)
         }
 
         // Display parts
