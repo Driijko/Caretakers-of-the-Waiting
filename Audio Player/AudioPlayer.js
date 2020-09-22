@@ -45,4 +45,8 @@ function AudioPlayer() {
         trackTitle.display();
 
     }
+
+    this.input = function() {
+        playPauseButton.input();
+    }
 }

@@ -2,6 +2,7 @@
 let mode;
 let openingPrompts;
 let audioPlayer;
+let mouse;
 
 // Audio /////////////////////////////////////////////////////////////
 let auStartButton;
@@ -50,6 +51,7 @@ function setup() {
   // Define Variables
   openingPrompts = new OpeningPrompts();
   audioPlayer = new AudioPlayer();
+  mouse = new Mouse();
   // mode = "opening prompts";
 
   // Dev Mode
@@ -71,5 +73,9 @@ function draw() {
   }
   else if (mode === "opening animation") {
     audioPlayer.display();
+    audioPlayer.input();
+    if (mouse.clicked) {
+      rect(50, 50, 50, 50);
+    }
   }
 }

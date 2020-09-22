@@ -9,6 +9,14 @@ function collidePointRect(pointX, pointY, x, y, xW, yW) {
     return false;
 }
 
+function collidePointCircle(x, y, cx, cy, d) {
+    //2d
+    if( this.dist(x,y,cx,cy) <= d/2 ){
+      return true;
+    }
+    return false;
+}
+
 function transistionToFullScreen() {
     resizeCanvas(screen.width, screen.height);
     fullscreen(true);
