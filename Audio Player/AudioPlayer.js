@@ -28,12 +28,11 @@ function AudioPlayer() {
 
     // Fade In
     this.fadeIn = true;
-    
+    let fadeInAlpha = 255;
 
     // Create parts of audio player
     const playbackSection = new PlaybackSection(this.layout);
     const volumeSection = new VolumeSection(this.layout);
-
     const trackTitle = new TrackTitle(this.layout);
 
     this.display = function() {
@@ -44,16 +43,22 @@ function AudioPlayer() {
         fill(0);
 
         rect((width/2) + this.xOffset, height + this.yOffset, this.width, this.height);
-        
+
 
         // Display parts
-        // playbackSection.display();
-        // volumeSection.display();
-        // trackTitle.display();
+        playbackSection.display();
+        volumeSection.display();
+        trackTitle.display();
 
-        // if (this.fadeIn) {
-        //     if (this.layout)
-        // }
+        if (this.fadeIn) {
+            noStroke();
+            fill(0, fadeInAlpha);
+            rect((width/2) + this.xOffset - 3, height + this.yOffset - 3, this.width + 6, this.height + 6);
+            fadeInAlpha -= 2;
+            if (fadeInAlpha <= 0) {
+                this.fadeIn = false;
+            }
+        }
 
     }
 
