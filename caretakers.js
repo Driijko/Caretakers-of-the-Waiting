@@ -74,6 +74,7 @@ function draw() {
   else if (mode === "opening animation") {
     audioPlayer.display();
     audioPlayer.input();
+    mouse.input();
     if (mouse.clicked) {
       rect(50, 50, 50, 50);
     }

@@ -1,11 +1,20 @@
 function Mouse() {
     this.clicked = false;
-}
+    this.readyForNextClick = true;
 
-function mousePressed() {
-    mouse.clicked = true;
+    this.input = function() {
+        if (mouseIsPressed) {
+            if (this.clicked === false && this.readyForNextClick) {
+                this.clicked = true;
+                this.readyForNextClick = false;
+            }
+            else if (this.clicked) {
+                this.clicked = false;
+            }
+        }
+    }
 }
 
 function mouseReleased() {
-    mouse.clicked = false;
+    mouse.readyForNextClick = true;
 }
