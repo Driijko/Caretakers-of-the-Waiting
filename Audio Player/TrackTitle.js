@@ -1,6 +1,17 @@
 function TrackTitle(layout) {
 
-    this.layout = layout;
+    if (layout === 0) {
+        this.xOffset = -150;
+        this.yOffset = -60;
+        this.textSize = 17;
+        this.width = 300;
+    }
+    else if (layout === 1) {
+        this.xOffset = -300;
+        this.yOffset = -55;
+        this.textSize = 25;
+        this.width = 600;
+    }
     this.trackTitle = "Caretakers of the Waiting Main Theme";
     
 
@@ -8,13 +19,7 @@ function TrackTitle(layout) {
         noStroke();
         fill(255);
 
-        if (this.layout === 0) {
-            textSize(17);
-            text(this.trackTitle, (width/2) - 150, height - 60, 300, 50);
-        }
-        else if (this.layout === 1) {
-            textSize(25);
-            text(this.trackTitle, (width/2) - 300, height - 55, 600, 50);
-        }
+        textSize(this.textSize);
+        text(this.trackTitle, (width/2) + this.xOffset, height + this.yOffset, this.width, 50);
     }
 }

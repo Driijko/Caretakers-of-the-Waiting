@@ -1,6 +1,14 @@
 function Timer(layout) {
 
     this.layout = layout;
+    if (layout === 0) {
+        this.xOffset = -50;
+        this.yOffset = -140;
+    }
+    else if (layout === 1) {
+        this.xOffset = -75;
+        this.yOffset = -95;
+    }
 
     this.display = function() {
         textAlign(CENTER, CENTER);
@@ -8,11 +16,7 @@ function Timer(layout) {
         textSize(20);
         fill(255);
 
-        if (this.layout === 0) {
-            text("00:06 / 32:38", (width/2) - 80, height - 140, 200, 30);
-        }
-        else if (this.layout === 1) {
-            text("00:06 / 32: 38", (width/2) - 5, height - 80, )
-        }
+        text("00:06 / 32: 38", (width/2) + this.xOffset, height + this.yOffset, 150, 30);
+
     }
 }

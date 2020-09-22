@@ -27,7 +27,7 @@ function AudioPlayer() {
     }
 
     // Fade In
-    this.fadeIn = true;
+    this.fadeIn = false;
     let fadeInAlpha = 255;
 
     // Create parts of audio player
@@ -41,7 +41,6 @@ function AudioPlayer() {
         stroke(255);
         strokeWeight(5);
         fill(0);
-
         rect((width/2) + this.xOffset, height + this.yOffset, this.width, this.height);
 
 
@@ -50,6 +49,7 @@ function AudioPlayer() {
         volumeSection.display();
         trackTitle.display();
 
+        // Fade In
         if (this.fadeIn) {
             noStroke();
             fill(0, fadeInAlpha);

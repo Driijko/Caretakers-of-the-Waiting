@@ -1,14 +1,16 @@
 function MuteFullVolumeButton(layout) {
 
-    this.layout = layout;
+    if (layout === 0) {
+        this.xOffset = -140;
+        this.yOffset = -105;
+    }
+    else if (layout === 1) {
+        this.xOffset = 70;
+        this.yOffset = -100;
+    }
     this.image = imFullVolumeButton;
 
     this.display = function() {
-        if (this.layout === 0) {
-            image(this.image, (width/2) - 140, height - 105, 40, 40);
-        }
-        else if (this.layout === 1) {
-            image(this.image, (width/2) + 70, height - 100, 40, 40);
-        }
+        image(this.image, (width/2) + this.xOffset, height + this.yOffset, 40, 40);
     }
 }
