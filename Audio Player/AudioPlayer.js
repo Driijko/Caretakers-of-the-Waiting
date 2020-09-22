@@ -35,6 +35,12 @@ function AudioPlayer() {
     const volumeSection = new VolumeSection(this.layout);
     const trackTitle = new TrackTitle(this.layout);
 
+    this.setTrack = function(track) {
+        trackTitle.setTrack(track); 
+    }
+
+    this.setTrack(auThemeMusic);
+
     this.display = function() {
 
         // Audio Player outline

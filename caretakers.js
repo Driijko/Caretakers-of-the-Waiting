@@ -26,7 +26,7 @@ function preload() {
   auStartButton = loadSound("./assets/audio/startButton.wav");
 
   // Acts and Theme Music
-  // auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
+  auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
   // auAct1 = loadSound("./assets/audio/acts and music/act1.mp3");
   // auAct2 = loadSound("./assets/audio/acts and music/act2.mp3");
   // auAct3 = loadSound("./assets/audio/acts and music/act3.mp3");
