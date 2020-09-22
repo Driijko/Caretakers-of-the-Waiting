@@ -48,5 +48,6 @@ function AudioPlayer() {
 
     this.input = function() {
         playPauseButton.input();
+        muteFullVolumeButton.input();
     }
 }
