@@ -12,6 +12,11 @@ function PlaybackSection(layout) {
         timer.display();
     }
 
+    this.setTrack = function(track) {
+        this.track = track;
+        timer.setTrackLength(Math.floor(track.duration()));
+    }
+
     this.input = function() {
 
         // Click play/pause button

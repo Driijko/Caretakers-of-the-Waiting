@@ -36,7 +36,8 @@ function AudioPlayer() {
     const trackTitle = new TrackTitle(this.layout);
 
     this.setTrack = function(track) {
-        trackTitle.setTrack(track); 
+        trackTitle.setTrack(track);
+        playbackSection.setTrack(track); 
     }
 
     this.setTrack(auThemeMusic);
