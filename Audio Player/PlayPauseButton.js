@@ -17,8 +17,14 @@ function PlayPauseButton(layout) {
         if (
             this.layout === 0
             && collidePointCircle(mouseX, mouseY, (width/2) - 120, height - 155, 40)
+            && mouse.clicked
         ) {
-            rect(50, 50, 50, 50);
+            if (this.image === imPlayButton) {
+                this.image = imPauseButton;
+            }
+            else {
+                this.image = imPlayButton;
+            }
         }
     }
 }

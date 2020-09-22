@@ -72,11 +72,8 @@ function draw() {
     openingPrompts.input();
   }
   else if (mode === "opening animation") {
+    mouse.input();
     audioPlayer.display();
     audioPlayer.input();
-    mouse.input();
-    if (mouse.clicked) {
-      rect(50, 50, 50, 50);
-    }
   }
 }
