@@ -1,5 +1,7 @@
 function PlaybackSection(layout) {
 
+    this.sliderDrag = false;
+
     const playPauseButton = new PlayPauseButton(layout);
     const playbackSlider = new PlaybackSlider(layout);
     const timer = new Timer(layout);
@@ -28,12 +30,28 @@ function PlaybackSection(layout) {
         }
 
         // Move playback slider with mouse
+        // Initial Click
         if (
             collidePointRect(mouseX, mouseY, (width/2) + playbackSlider.xOffset, height + playbackSlider.yOffset, 220, 20)
             && mouseIsPressed
+            && mouse.readyForNextClick
         ) {
             mouse.click();
             playbackSlider.sliderX = mouseX;
+            this.sliderDrag = true;
+        }
+
+        // Hold mouse button and drag slider
+        if (this.sliderDrag) {
+            if (!mouseIsPressed) {
+                this.sliderDrag = false;
+            }
+            else if (
+                mouseX > (width/2) + playbackSlider.sliderXMinOffset 
+                && mouseX < (width/2) + playbackSlider.sliderXMaxOffset
+            ) {
+                playbackSlider.sliderX = mouseX
+            }
         }
     }
 }

@@ -1,14 +1,14 @@
 function VolumeSection(layout) {
-    this.layout = layout;
 
-    const muteFullVolumeButton = new MuteFullVolumeButton(this.layout);
-    const volumeSlider = new VolumeSlider(this.layout);
+    this.sliderDrag = false;
+
+    const muteFullVolumeButton = new MuteFullVolumeButton(layout);
+    const volumeSlider = new VolumeSlider(layout);
 
     this.display = function() {
         muteFullVolumeButton.display();
         volumeSlider.display();
         fill(255, 50);
-        // ellipse((width/2 + muteFullVolumeButton.xOffset) + 20, height + muteFullVolumeButton.yOffset + 20, 40)
     }
 
     this.input = function() {
@@ -31,12 +31,28 @@ function VolumeSection(layout) {
         }
 
         // Move slider with mouse /////////////////////////////////////////////////
+        // Initial click
         if (
             collidePointRect(mouseX, mouseY, (width/2) + volumeSlider.xOffset, height + volumeSlider.yOffset, 220, 20)
             && mouseIsPressed
+            && mouse.readyForNextClick
         ) {
             mouse.click();
             volumeSlider.sliderX = mouseX;
+            this.sliderDrag = true;
+        }
+
+        // Hold mouse button and drag slider
+        if (this.sliderDrag) {
+            if (!mouseIsPressed) {
+                this.sliderDrag = false;
+            }
+            else if (
+                mouseX > (width/2) + volumeSlider.sliderXMinOffset 
+                && mouseX < (width/2) + volumeSlider.sliderXMaxOffset
+            ) {
+                volumeSlider.sliderX = mouseX
+            }
         }
 
         // // Mute/FullVolume button reacts to slider position. ////////////////////

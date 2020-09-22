@@ -59,7 +59,6 @@ function AudioPlayer() {
                 this.fadeIn = false;
             }
         }
-
     }
 
     this.input = function() {

@@ -15,7 +15,6 @@ function TrackTitle(layout) {
 
     this.trackTitle = "Caretakers of the Waiting Main Theme";
     
-
     this.display = function() {
         noStroke();
         fill(255);
