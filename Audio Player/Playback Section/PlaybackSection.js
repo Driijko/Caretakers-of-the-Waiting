@@ -10,4 +10,8 @@ function PlaybackSection(layout) {
         playblackSlider.display();
         timer.display();
     }
+
+    this.input = function() {
+        
+    }
 }

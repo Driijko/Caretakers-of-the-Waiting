@@ -15,8 +15,8 @@ function AudioPlayer() {
 
     // Create parts of audio player
     const playbackSection = new PlaybackSection(this.layout);
-    const muteFullVolumeButton = new MuteFullVolumeButton(this.layout);
-    const volumeSlider = new VolumeSlider(this.layout);
+    const volumeSection = new VolumeSection(this.layout);
+
     const trackTitle = new TrackTitle(this.layout);
 
     this.display = function() {
@@ -36,16 +36,13 @@ function AudioPlayer() {
 
         // Display parts
         playbackSection.display();
-        muteFullVolumeButton.display();
-        volumeSlider.display();
+        volumeSection.display();
         trackTitle.display();
 
     }
 
     this.input = function() {
-        playPauseButton.input();
-        muteFullVolumeButton.input();
-        playblackSlider.input();
-        volumeSlider.input();
+        playbackSection.input();
+        volumeSection.input();
     }
 }
