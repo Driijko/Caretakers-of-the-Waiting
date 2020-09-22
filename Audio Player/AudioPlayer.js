@@ -11,6 +11,23 @@ function AudioPlayer() {
     else {
         this.layout = 1;
     }
+
+    // Positioning
+    if (this.layout === 0) {
+        this.xOffset = -150;
+        this.yOffset = -190;
+        this.width = 300;
+        this.height = 180;
+    }
+    else if (this.layout === 1) {
+        this.xOffset = -360;
+        this.yOffset = -110;
+        this.width = 720;
+        this.height = 100;
+    }
+
+    // Fade In
+    this.fadeIn = true;
     
 
     // Create parts of audio player
@@ -26,18 +43,17 @@ function AudioPlayer() {
         strokeWeight(5);
         fill(0);
 
-        // Layout 0
-        if (this.layout === 0) {
-            rect((width/2) - 150, height - 190, 300, 180);
-        }
-        else if (this.layout === 1) {
-            rect((width/2) - 360, height - 110, 720, 100)
-        }
+        rect((width/2) + this.xOffset, height + this.yOffset, this.width, this.height);
+        
 
         // Display parts
-        playbackSection.display();
-        volumeSection.display();
-        trackTitle.display();
+        // playbackSection.display();
+        // volumeSection.display();
+        // trackTitle.display();
+
+        // if (this.fadeIn) {
+        //     if (this.layout)
+        // }
 
     }
 
