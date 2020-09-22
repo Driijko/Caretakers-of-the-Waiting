@@ -50,5 +50,6 @@ function AudioPlayer() {
         playPauseButton.input();
         muteFullVolumeButton.input();
         playblackSlider.input();
+        volumeSlider.input();
     }
 }
