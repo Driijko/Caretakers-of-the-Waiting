@@ -1,12 +1,11 @@
 function PlayPauseButton(layout) {
 
-    this.layout = layout;
     if (layout === 0) {
         this.xOffset = -140;
         this.yOffset = -175;
     }
     else if (layout === 1) {
-        this.xOffset = -350;
+        this.xOffset = -355;
         this.yOffset = -100;
     }
     this.image = imPlayButton;

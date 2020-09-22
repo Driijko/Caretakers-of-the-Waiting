@@ -2,11 +2,15 @@ function VolumeSlider(layout) {
 
     if (layout === 0) {
         this.sliderX = (width/2) + 100;
+        this.sliderXMaxOffset = 135;
+        this.sliderXMinOffset = -85;
         this.xOffset = -85;
         this.yOffset = -95;
     }
     else if (layout === 1) {
         this.sliderX = (width/2) + 300;
+        this.sliderXMaxOffset = 345;
+        this.sliderXMinOffset = 125;
         this.xOffset = 125;
         this.yOffset = -90;
     }

@@ -8,6 +8,7 @@ function MuteFullVolumeButton(layout) {
         this.xOffset = 70;
         this.yOffset = -100;
     }
+    
     this.image = imFullVolumeButton;
 
     this.display = function() {

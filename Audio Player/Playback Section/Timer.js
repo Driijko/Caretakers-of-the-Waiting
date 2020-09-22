@@ -1,6 +1,5 @@
 function Timer(layout) {
 
-    this.layout = layout;
     if (layout === 0) {
         this.xOffset = -50;
         this.yOffset = -140;

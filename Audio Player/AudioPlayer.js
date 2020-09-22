@@ -20,9 +20,9 @@ function AudioPlayer() {
         this.height = 180;
     }
     else if (this.layout === 1) {
-        this.xOffset = -360;
+        this.xOffset = -365;
         this.yOffset = -110;
-        this.width = 720;
+        this.width = 730;
         this.height = 100;
     }
 
