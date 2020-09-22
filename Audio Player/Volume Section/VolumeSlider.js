@@ -29,12 +29,12 @@ function VolumeSlider(layout) {
         if (
             ((
                 this.layout === 0
-                && collidePointRect(mouseX, mouseY, (width/2) - 80, height - 95, 220, 20)
+                && collidePointRect(mouseX, mouseY, (width/2) - 85, height - 95, 220, 20)
             )
             ||
             (
                 this.layout === 1
-                && collidePointRect(mouseX, mouseY, (width/2) + 130, height - 90, 220, 20)
+                && collidePointRect(mouseX, mouseY, (width/2) + 125, height - 90, 220, 20)
             ))
             && mouseIsPressed
         ) {
