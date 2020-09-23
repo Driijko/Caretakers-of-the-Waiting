@@ -14,7 +14,8 @@ function PlaybackSection(layout) {
 
     this.setTrack = function(track) {
         this.track = track;
-        timer.setTrackLength(Math.floor(track.duration()));
+        this.trackLength = Math.floor(track.duration());
+        timer.setTrackLength(this.trackLength);
     }
 
     this.input = function() {
@@ -64,7 +65,9 @@ function PlaybackSection(layout) {
 
     this.trackFollow = function() {
         if (this.track.isPlaying() && this.track.currentTime() > 0) {
-            timer.currentTime = Math.floor(this.track.currentTime());
+            const currentTime = Math.floor(this.track.currentTime());
+            timer.currentTime = currentTime;
+            playbackSlider.sliderX = map(currentTime, 0, this.trackLength, (width/2) + playbackSlider.sliderXMinOffset, (width/2) + playbackSlider.sliderXMaxOffset);
         }
     }
 }
