@@ -1,6 +1,7 @@
 function PlaybackSection(layout) {
 
     this.sliderDrag = false;
+    this.trackWasPlaying = false;
 
     const playPauseButton = new PlayPauseButton(layout);
     const playbackSlider = new PlaybackSlider(layout);
@@ -10,6 +11,8 @@ function PlaybackSection(layout) {
         playPauseButton.display();
         playbackSlider.display();
         timer.display();
+        noStroke();
+        text(`${timer.currentTime}`, 200, 200)
     }
 
     this.setTrack = function(track) {
@@ -30,6 +33,7 @@ function PlaybackSection(layout) {
             if (playPauseButton.image === imPlayButton) {
                 playPauseButton.image = imPauseButton;
                 this.track.play();
+                this.track.jump(timer.currentTime);
             }
             else {
                 playPauseButton.image = imPlayButton;
@@ -47,18 +51,31 @@ function PlaybackSection(layout) {
             mouse.click();
             playbackSlider.sliderX = mouseX;
             this.sliderDrag = true;
+            if (this.track.isPlaying()) {
+                this.track.stop();
+                this.trackWasPlaying = true;
+            }
+            else {
+                this.trackWasPlaying = false;
+            }
+
         }
 
         // Hold mouse button and drag slider
         if (this.sliderDrag) {
             if (!mouseIsPressed) {
                 this.sliderDrag = false;
+                this.track.jump(timer.currentTime);
+                if (!this.trackWasPlaying) {
+                    this.track.pause();
+                }
             }
             else if (
                 mouseX > (width/2) + playbackSlider.sliderXMinOffset 
                 && mouseX < (width/2) + playbackSlider.sliderXMaxOffset
             ) {
-                playbackSlider.sliderX = mouseX
+                playbackSlider.sliderX = mouseX;
+                timer.currentTime = Math.floor(map(playbackSlider.sliderX, (width/2) + playbackSlider.sliderXMinOffset, (width/2) + playbackSlider.sliderXMaxOffset, 0, this.trackLength));
             }
         }
     }
