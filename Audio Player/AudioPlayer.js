@@ -38,6 +38,7 @@ function AudioPlayer() {
     this.setTrack = function(track) {
         trackTitle.setTrack(track);
         playbackSection.setTrack(track); 
+        volumeSection.track = track;
     }
 
     this.setTrack(auThemeMusic);

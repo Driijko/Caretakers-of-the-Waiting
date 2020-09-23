@@ -23,10 +23,12 @@ function VolumeSection(layout) {
             if (muteFullVolumeButton.image === imMuteButton) {
                 muteFullVolumeButton.image = imFullVolumeButton;
                 volumeSlider.sliderX = (width/2) + volumeSlider.sliderXMinOffset;
+                this.track.setVolume(0);
             }
             else {
                 muteFullVolumeButton.image = imMuteButton;
                 volumeSlider.sliderX = (width/2) + volumeSlider.sliderXMaxOffset;
+                this.track.setVolume(1.0);
             }
         }
 
@@ -40,6 +42,7 @@ function VolumeSection(layout) {
             mouse.click();
             volumeSlider.sliderX = mouseX;
             this.sliderDrag = true;
+            this.track.setVolume(map(volumeSlider.sliderX, (width/2) + volumeSlider.sliderXMinOffset, (width/2) + volumeSlider.sliderXMaxOffset, 0.0, 1.0))
         }
 
         // Hold mouse button and drag slider
@@ -51,7 +54,8 @@ function VolumeSection(layout) {
                 mouseX > (width/2) + volumeSlider.sliderXMinOffset 
                 && mouseX < (width/2) + volumeSlider.sliderXMaxOffset
             ) {
-                volumeSlider.sliderX = mouseX
+                volumeSlider.sliderX = mouseX;
+                this.track.setVolume(map(volumeSlider.sliderX, (width/2) + volumeSlider.sliderXMinOffset, (width/2) + volumeSlider.sliderXMaxOffset, 0.0, 1.0))
             }
         }
 
