@@ -28,9 +28,11 @@ function PlaybackSection(layout) {
             mouse.click();
             if (playPauseButton.image === imPlayButton) {
                 playPauseButton.image = imPauseButton;
+                this.track.play();
             }
             else {
                 playPauseButton.image = imPlayButton;
+                this.track.pause();
             }
         }
 
@@ -57,6 +59,12 @@ function PlaybackSection(layout) {
             ) {
                 playbackSlider.sliderX = mouseX
             }
+        }
+    }
+
+    this.trackFollow = function() {
+        if (this.track.isPlaying() && this.track.currentTime() > 0) {
+            timer.currentTime = Math.floor(this.track.currentTime());
         }
     }
 }

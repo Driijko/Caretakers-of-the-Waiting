@@ -74,5 +74,6 @@ function draw() {
   else if (mode === "opening animation") {
     audioPlayer.display();
     audioPlayer.input();
+    audioPlayer.trackFollow();
   }
 }

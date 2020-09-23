@@ -1,5 +1,7 @@
 function Timer(layout) {
 
+    this.currentTime = 0;
+
     if (layout === 0) {
         this.xOffset = -50;
         this.yOffset = -140;
@@ -10,9 +12,9 @@ function Timer(layout) {
     }
 
     this.convertSecondsToTimeString = function(timeInSeconds) {
-        const minutes = timeInSeconds % 60;
-        const seconds = Math.floor(timeInSeconds / 60);
-        return `${minutes}:${seconds < 10 ? 0 : null}${seconds}`;
+        const seconds = timeInSeconds % 60;
+        const minutes = Math.floor(timeInSeconds / 60);
+        return `${minutes}:${seconds < 10 ? 0 : ""}${seconds}`;
     }
 
     this.setTrackLength = function(trackLength) {
@@ -26,7 +28,7 @@ function Timer(layout) {
         fill(255);
 
         text(
-            `00:06 / ${this.trackLength}`, 
+            `${this.convertSecondsToTimeString(this.currentTime)} / ${this.trackLength}`, 
             (width/2) + this.xOffset, 
             height + this.yOffset, 
             150, 

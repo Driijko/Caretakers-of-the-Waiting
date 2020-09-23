@@ -72,4 +72,8 @@ function AudioPlayer() {
         playbackSection.input();
         volumeSection.input();
     }
+
+    this.trackFollow = function() {
+        playbackSection.trackFollow();
+    }
 }
