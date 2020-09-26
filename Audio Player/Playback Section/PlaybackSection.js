@@ -1,8 +1,9 @@
 function PlaybackSection(layout) {
+ 
+    this.sliderDrag = false; // Set to "true" to allow user to drag slider with mouse
+    this.trackWasPlaying = false; // Used for when track is paused while user drags slider
 
-    this.sliderDrag = false;
-    this.trackWasPlaying = false;
-
+    // Create parts of playback section
     const playPauseButton = new PlayPauseButton(layout);
     const playbackSlider = new PlaybackSlider(layout);
     const timer = new Timer(layout);
@@ -15,6 +16,8 @@ function PlaybackSection(layout) {
         text(`${timer.currentTime}`, 200, 200)
     }
 
+    // This function is called within the 'setTrack' function of the 
+    // AudioPlayer object
     this.setTrack = function(track) {
         this.track = track;
         this.trackLength = Math.floor(track.duration());
@@ -33,7 +36,9 @@ function PlaybackSection(layout) {
             if (playPauseButton.image === imPlayButton) {
                 playPauseButton.image = imPauseButton;
                 this.track.play();
-                this.track.jump(timer.currentTime);
+                // We include this last method just in case the user dragged the slider
+                // prior to hitting play.
+                this.track.jump(timer.currentTime); 
             }
             else {
                 playPauseButton.image = imPlayButton;
@@ -76,6 +81,14 @@ function PlaybackSection(layout) {
             ) {
                 playbackSlider.sliderX = mouseX;
                 timer.currentTime = Math.floor(map(playbackSlider.sliderX, (width/2) + playbackSlider.sliderXMinOffset, (width/2) + playbackSlider.sliderXMaxOffset, 0, this.trackLength));
+            }
+            else if (mouseX <= (width/2) + playbackSlider.sliderXMinOffset) {
+                playbackSlider.sliderX = (width/2) + playbackSlider.sliderXMinOffset;
+                timer.currentTime = 0;
+            }
+            else if (mouseX >= (width/2) + playbackSlider.sliderXMaxOffset) {
+                playbackSlider.sliderX = (width/2) + playbackSlider.sliderXMaxOffset;
+                timer.currentTime = this.trackLength;
             }
         }
     }

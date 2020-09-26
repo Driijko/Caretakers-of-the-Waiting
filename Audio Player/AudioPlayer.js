@@ -12,7 +12,7 @@ function AudioPlayer() {
         this.layout = 1;
     }
 
-    // Positioning
+    // Positioning and Size
     if (this.layout === 0) {
         this.xOffset = -150;
         this.yOffset = -190;
@@ -40,7 +40,7 @@ function AudioPlayer() {
         playbackSection.setTrack(track); 
         volumeSection.track = track;
     }
-
+    
     this.setTrack(auThemeMusic);
 
     this.display = function() {

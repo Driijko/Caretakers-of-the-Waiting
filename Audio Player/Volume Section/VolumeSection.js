@@ -57,6 +57,14 @@ function VolumeSection(layout) {
                 volumeSlider.sliderX = mouseX;
                 this.track.setVolume(map(volumeSlider.sliderX, (width/2) + volumeSlider.sliderXMinOffset, (width/2) + volumeSlider.sliderXMaxOffset, 0.0, 1.0))
             }
+            else if (mouseX <= (width/2) + volumeSlider.sliderXMinOffset) {
+                volumeSlider.sliderX = (width/2) + volumeSlider.sliderXMinOffset;
+                this.track.setVolume(0);
+            }
+            else if (mouseX >= (width/2) + volumeSlider.sliderXMaxOffset) {
+                volumeSlider.sliderX = (width/2) + volumeSlider.sliderXMaxOffset;
+                this.track.setVolume(1);
+            }
         }
 
         // // Mute/FullVolume button reacts to slider position. ////////////////////
