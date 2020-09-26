@@ -1,7 +1,8 @@
 function VolumeSection(layout) {
 
-    this.sliderDrag = false;
+    this.sliderDrag = false; // Set this to "true" to allow user to drag slider with mouse
 
+    // Create parts of volume section
     const muteFullVolumeButton = new MuteFullVolumeButton(layout);
     const volumeSlider = new VolumeSlider(layout);
 
@@ -67,7 +68,7 @@ function VolumeSection(layout) {
             }
         }
 
-        // // Mute/FullVolume button reacts to slider position. ////////////////////
+        // Mute/FullVolume button reacts to slider position
         if (volumeSlider.sliderX > (width/2) + volumeSlider.xOffset) {
             muteFullVolumeButton.image = imMuteButton;
         }

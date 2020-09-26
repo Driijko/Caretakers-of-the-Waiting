@@ -8,6 +8,7 @@ function PlayPauseButton(layout) {
         this.xOffset = -355;
         this.yOffset = -100;
     }
+    
     this.image = imPlayButton;
 
     this.display = function() {

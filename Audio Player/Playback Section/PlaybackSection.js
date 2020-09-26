@@ -12,8 +12,6 @@ function PlaybackSection(layout) {
         playPauseButton.display();
         playbackSlider.display();
         timer.display();
-        noStroke();
-        text(`${timer.currentTime}`, 200, 200)
     }
 
     // This function is called within the 'setTrack' function of the 

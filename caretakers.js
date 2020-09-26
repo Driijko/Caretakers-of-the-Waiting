@@ -27,6 +27,7 @@ function preload() {
 
   // Acts and Theme Music
   auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
+  auThemeMusic.setLoop(true);
   // auAct1 = loadSound("./assets/audio/acts and music/act1.mp3");
   // auAct2 = loadSound("./assets/audio/acts and music/act2.mp3");
   // auAct3 = loadSound("./assets/audio/acts and music/act3.mp3");
