@@ -41,7 +41,7 @@ function AudioPlayer() {
         volumeSection.track = track;
     }
     
-    this.setTrack(auThemeMusic);
+    // this.setTrack(auThemeMusic);
 
     this.display = function() {
 
