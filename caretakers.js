@@ -59,6 +59,7 @@ function setup() {
 
   // Dev Mode
   mode = "opening animation";
+  frameRate(30);
 }
 
 function windowResized() {
@@ -79,6 +80,6 @@ function draw() {
     // audioPlayer.input();
     // audioPlayer.trackFollow();
     tree.display();
-    tree.update();
+    tree.grow();
   }
 }
