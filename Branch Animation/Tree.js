@@ -5,43 +5,50 @@ function Tree() {
     background(0);
     stroke(255);
     strokeWeight(5)
-    line(10, apTop, width - 10, apTop);
+    // line(10, apTop, width - 10, apTop);
 
-    this.stage = "branch growth";
+    this.stage = "trunk growth";
 
     // Trunk
     this.trunkHeight = 0;
     this.maxTrunkHeight = 40;
+    const trunk = new Trunk(apTop, 300, 40);
 
     // Branches
     this.branches = []; 
-    const root = new Branch(100, 6, createVector((width/2), apTop - 40), createVector(0, -1));
+    const root = new Branch(20, 10, createVector((width/2), apTop - 35), createVector(0, -1));
     this.branches.push(root);
 
     this.grow = function() {
-        this.branches.forEach(branch => {
-            branch.grow();
-        })
+        if (this.stage === "trunk growth") {
+            trunk.grow();
+        }
+        if (this.stage === "branch growth") {
+            this.branches.forEach(branch => {
+                branch.grow();
+            })
+        }
     }
 
 
     this.display = function() {
         if (this.stage === "trunk growth") {
-            noStroke();
-            fill(255);
-            beginShape();
-            vertex(15, apTop);
-            bezierVertex(15, apTop, (width/2) - 60, apTop, (width/2), apTop - this.trunkHeight);
-            bezierVertex((width/2) + 60, apTop, width - 15, apTop, width - 15, apTop)
-            endShape(CLOSE);
-            if (this.trunkHeight < this.maxTrunkHeight) {
-                this.trunkHeight++;
-            } 
-            else {
-                this.stage = "branch growth";
-            }          
+            trunk.display();
+            // noStroke();
+            // fill(255);
+            // beginShape();
+            // vertex(15, apTop);
+            // bezierVertex(15, apTop, (width/2) - 60, apTop, (width/2), apTop - this.trunkHeight);
+            // bezierVertex((width/2) + 60, apTop, width - 15, apTop, width - 15, apTop)
+            // endShape(CLOSE);
+            // if (this.trunkHeight < this.maxTrunkHeight) {
+            //     this.trunkHeight++;
+            // } 
+            // else {
+            //     this.stage = "trunk growth 2";
+            // }        
         }
-        else if (this.stage === "branch growth") {
+        else if (this.stage === "trunk growth 2") {
             this.branches.forEach(branch => {
                 branch.display();
             })

@@ -79,7 +79,7 @@ function draw() {
     // audioPlayer.display();
     // audioPlayer.input();
     // audioPlayer.trackFollow();
-    tree.display();
     tree.grow();
+    tree.display();
   }
 }
