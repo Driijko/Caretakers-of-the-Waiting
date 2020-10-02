@@ -13,26 +13,33 @@ function Tree() {
     this.maxTrunkHeight = 40;
     const trunk = new Trunk(apTop, 300, 40);
 
+    // Ring
+    const ring = new Ring(apTop - trunk.maxFoundationHeight - (trunk.maxFoundationHeight / 2));
+
     // Branches
-    this.branches = []; 
-    const root = new Branch(20, 10, createVector((width/2), apTop - 35), createVector(0, -1));
-    this.branches.push(root);
+    // this.branches = []; 
+    // const root = new Branch(20, 10, createVector((width/2), apTop - 35), createVector(0, -1));
+    // this.branches.push(root);
 
     this.grow = function() {
         if (this.stage === "trunk growth") {
             trunk.grow();
+            if (trunk.stage === "not growing") {
+                this.stage = "ring growth";
+            }
         }
-        if (this.stage === "branch growth") {
-            this.branches.forEach(branch => {
-                branch.grow();
-            })
-        }
+        if (this.stage === "ring growth") {
+            ring.grow();
+        }   
     }
 
 
     this.display = function() {
         if (this.stage === "trunk growth") {
             trunk.display();       
+        }
+        else if (this.stage === "ring growth") {
+            ring.display();
         }
     }
 }

@@ -4,6 +4,7 @@ function Trunk(bottom, foundationWidth, height) {
     this.maxFoundationHeight = height;
     this.bottom = bottom;
     this.lineHeight = 0;
+    this.stage = "growing";
 
     this.grow = function() {
         if (this.foundationHeight < this.maxFoundationHeight) {
@@ -11,6 +12,9 @@ function Trunk(bottom, foundationWidth, height) {
         }
         else if (this.lineHeight < (this.maxFoundationHeight / 2)) {
             this.lineHeight ++;
+        }
+        else {
+            this.stage = "not growing";
         }        
     }
 
