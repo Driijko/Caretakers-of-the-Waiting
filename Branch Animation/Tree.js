@@ -5,7 +5,6 @@ function Tree() {
     background(0);
     stroke(255);
     strokeWeight(5)
-    // line(10, apTop, width - 10, apTop);
 
     this.stage = "trunk growth";
 
@@ -33,25 +32,7 @@ function Tree() {
 
     this.display = function() {
         if (this.stage === "trunk growth") {
-            trunk.display();
-            // noStroke();
-            // fill(255);
-            // beginShape();
-            // vertex(15, apTop);
-            // bezierVertex(15, apTop, (width/2) - 60, apTop, (width/2), apTop - this.trunkHeight);
-            // bezierVertex((width/2) + 60, apTop, width - 15, apTop, width - 15, apTop)
-            // endShape(CLOSE);
-            // if (this.trunkHeight < this.maxTrunkHeight) {
-            //     this.trunkHeight++;
-            // } 
-            // else {
-            //     this.stage = "trunk growth 2";
-            // }        
-        }
-        else if (this.stage === "trunk growth 2") {
-            this.branches.forEach(branch => {
-                branch.display();
-            })
+            trunk.display();       
         }
     }
 }

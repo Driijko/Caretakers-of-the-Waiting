@@ -52,7 +52,9 @@ function setup() {
 
   // Define Variables
   openingPrompts = new OpeningPrompts();
-  audioPlayer = new AudioPlayer();
+  // audioPlayer = new AudioPlayer();
+  audioPlayer = {};
+  audioPlayer.yOffset = -190;
   tree = new Tree();
   mouse = new Mouse();
   // mode = "opening prompts";
