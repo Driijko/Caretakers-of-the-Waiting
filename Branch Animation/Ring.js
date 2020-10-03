@@ -5,6 +5,7 @@ function Ring(startPoint) {
     this.yDir = 0;
     this.frameCounter = 0;
     this.branches = [];
+    let branchCount = 0;
 
     this.grow = function() {
         if (this.frameCounter < 60) {
@@ -16,21 +17,34 @@ function Ring(startPoint) {
         }
 
         // Create Branches
-        if (this.frameCounter < 50) {
-            const probabilityValue = Math.floor(random(0, 5));
-            if (probabilityValue === 0) {
-                const dir = Math.floor(random(0, 2)) === 0 ? -1 : 1 ;
-                this.branches.push(new Branch((width/2) + this.x, this.y, 6 - (this.frameCounter / 6), dir, dir));
-                this.branches.push(new Branch((width/2) - this.x, this.y, 6 - (this.frameCounter / 6), dir * -1, dir));
-            }
+        if (this.frameCounter < 60 && frameCount % 5 === 0) {
+            this.branches.push(
+                new Branch(
+                    (width/2) + this.x,                                               
+                    this.y,
+                    1, 
+                    // 6 - int(this.frameCounter * 0.1), 
+                    (90 - (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180 : 0),  
+                    150
+                )
+            );
+            this.branches.push(
+                new Branch(
+                    (width/2 - this.x),
+                    this.y,
+                    1,
+                    (90 + (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180: 0),
+                    150
+                )
+            )
         }
 
-        // Grow Branches
-        if (this.branches.length > 0) {
-            this.branches.forEach(branch => {
-                branch.grow();
-            })
-        }
+        // // Grow Branches
+        // if (this.branches.length > 0) {
+        //     this.branches.forEach(branch => {
+        //         branch.grow();
+        //     })
+        // }
     }
 
     this.display = function() {

@@ -45,6 +45,8 @@ function AudioPlayer() {
 
     this.display = function() {
 
+        // background(0);
+
         // Audio Player outline
         stroke(255);
         strokeWeight(5);

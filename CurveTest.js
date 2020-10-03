@@ -11,12 +11,12 @@ function CurveTest() {
     let speed = 1;
     this.dir = p5.Vector.fromAngle(radians(angle)).mult(speed);
 
-    noFill();
-    smooth();
+    // noFill();
+    // smooth();
 
-    stroke(255, 0, 0);
-    strokeWeight(20);
-    point(center.x, center.y);
+    // stroke(255, 0, 0);
+    // strokeWeight(20);
+    // point(center.x, center.y);
     
     this.display = function() {
 

@@ -28,7 +28,7 @@ function preload() {
   auStartButton = loadSound("./assets/audio/startButton.wav");
 
   // Acts and Theme Music
-  // auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
+  auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
   // auThemeMusic.setLoop(true);
   // auAct1 = loadSound("./assets/audio/acts and music/act1.mp3");
   // auAct2 = loadSound("./assets/audio/acts and music/act2.mp3");
@@ -54,9 +54,9 @@ function setup() {
 
   // Define Variables
   openingPrompts = new OpeningPrompts();
-  // audioPlayer = new AudioPlayer();
-  audioPlayer = {};
-  audioPlayer.yOffset = -190;
+  audioPlayer = new AudioPlayer();
+  // audioPlayer = {};
+  // audioPlayer.yOffset = -190;
   tree = new Tree();
   mouse = new Mouse();
   curveTest = new CurveTest();
@@ -81,11 +81,11 @@ function draw() {
     openingPrompts.input();
   }
   else if (mode === "opening animation") {
-    // audioPlayer.display();
+    audioPlayer.display();
     // audioPlayer.input();
     // audioPlayer.trackFollow();
-    // tree.grow();
-    // tree.display();
-    curveTest.display();
+    tree.grow();
+    tree.display();
+    // curveTest.display();
   }
 }
