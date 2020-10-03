@@ -14,13 +14,22 @@ function Ring(startPoint) {
             this.xDir -= 0.11;
             this.yDir += 0.11;
         }
+
         // Create Branches
         if (this.frameCounter < 50) {
             const probabilityValue = Math.floor(random(0, 5));
             if (probabilityValue === 0) {
-                this.branches.push(new Branch((width/2) + this.x, this.y, 12 - (this.frameCounter / 6)));
-                this.branches.push(new Branch((width/2) - this.x, this.y, 12 - (this.frameCounter / 6)));
+                const dir = Math.floor(random(0, 2)) === 0 ? -1 : 1 ;
+                this.branches.push(new Branch((width/2) + this.x, this.y, 6 - (this.frameCounter / 6), dir, dir));
+                this.branches.push(new Branch((width/2) - this.x, this.y, 6 - (this.frameCounter / 6), dir * -1, dir));
             }
+        }
+
+        // Grow Branches
+        if (this.branches.length > 0) {
+            this.branches.forEach(branch => {
+                branch.grow();
+            })
         }
     }
 

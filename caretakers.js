@@ -3,6 +3,7 @@ let mode;
 let openingPrompts;
 let audioPlayer;
 let tree;
+let curveTest;
 let mouse;
 
 // Audio /////////////////////////////////////////////////////////////
@@ -49,6 +50,7 @@ function setup() {
   // Initial view
   document.documentElement.style.overflow = "hidden";
   createCanvas(windowWidth, windowHeight);
+  background(0);
 
   // Define Variables
   openingPrompts = new OpeningPrompts();
@@ -57,6 +59,7 @@ function setup() {
   audioPlayer.yOffset = -190;
   tree = new Tree();
   mouse = new Mouse();
+  curveTest = new CurveTest();
   // mode = "opening prompts";
 
   // Dev Mode
@@ -81,7 +84,8 @@ function draw() {
     // audioPlayer.display();
     // audioPlayer.input();
     // audioPlayer.trackFollow();
-    tree.grow();
-    tree.display();
+    // tree.grow();
+    // tree.display();
+    curveTest.display();
   }
 }

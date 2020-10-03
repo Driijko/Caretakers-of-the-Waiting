@@ -16,11 +16,6 @@ function Tree() {
     // Ring
     const ring = new Ring(apTop - trunk.maxFoundationHeight - (trunk.maxFoundationHeight / 2));
 
-    // Branches
-    // this.branches = []; 
-    // const root = new Branch(20, 10, createVector((width/2), apTop - 35), createVector(0, -1));
-    // this.branches.push(root);
-
     this.grow = function() {
         if (this.stage === "trunk growth") {
             trunk.grow();
