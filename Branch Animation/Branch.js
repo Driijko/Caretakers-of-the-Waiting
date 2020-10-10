@@ -39,9 +39,17 @@ function Branch(x, y, thickness, ang, len) {
                 dir = p5.Vector.fromAngle(radians(angle)).mult(speed);
             }
 
-            if (frameCount % 50 === 0) {
+            if (frameCount % 30 === 0) {
                 if (length > 100) {
-                    branches.push(new Branch(pos.x, pos.y, thickness, angle, length - 30))
+                    branches.push(
+                        new Branch(
+                            pos.x, 
+                            pos.y, 
+                            thickness > 1 ? thickness - 1 : thickness, 
+                            angle, 
+                            length - 30
+                        )
+                    )
                 }
             }
 

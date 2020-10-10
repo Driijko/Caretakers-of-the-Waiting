@@ -22,7 +22,7 @@ function Ring(startPoint) {
                 new Branch(
                     (width/2) + this.x,                                               
                     this.y,
-                    1, 
+                    3, 
                     // 6 - int(this.frameCounter * 0.1), 
                     (90 - (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180 : 0),  
                     150
@@ -32,7 +32,7 @@ function Ring(startPoint) {
                 new Branch(
                     (width/2 - this.x),
                     this.y,
-                    1,
+                    3,
                     (90 + (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180: 0),
                     150
                 )
