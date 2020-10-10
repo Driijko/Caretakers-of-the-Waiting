@@ -1,21 +1,14 @@
 function Tree() {
 
     // Position relative to audio player
-    const apTop = height - 190
-    // const apTop = height + audioPlayer.yOffset
-    // background(0);
-    // stroke(255);
-    // strokeWeight(5)
+    const apTop = height + audioPlayer.yOffset
 
     this.stage = "trunk growth";
 
     // Trunk
-    this.trunkHeight = 0;
-    this.maxTrunkHeight = 40;
     const trunk = new Trunk(apTop, 300, 40);
 
     // Ring
-    // const ring = new Ring(apTop - trunk.maxFoundationHeight - (trunk.maxFoundationHeight / 2));
     const ring = new Ring(apTop - 45)
 
     this.grow = function() {
@@ -29,7 +22,6 @@ function Tree() {
             ring.grow();
         }   
     }
-
 
     this.display = function() {
         if (this.stage === "trunk growth") {
