@@ -5,7 +5,6 @@ function Branch(x, y, thickness, ang, len) {
 
     let speed = 1;
     const angleRange = 300;
-
     const angleCorrect = 20;
     let angleChange = int(random(-50, 50));
 
@@ -54,7 +53,7 @@ function Branch(x, y, thickness, ang, len) {
             }
 
             g.strokeWeight(thickness);
-            g.stroke(255, 20);
+            g.stroke(255, 50);
             g.line(pos.x, pos.y, pos.x + dir.x, pos.y + dir.y);
             pos.add(dir);
 
