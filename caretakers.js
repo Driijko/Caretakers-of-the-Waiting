@@ -3,7 +3,6 @@ let mode;
 let openingPrompts;
 let audioPlayer;
 let tree;
-let curveTest;
 let mouse;
 
 // Audio /////////////////////////////////////////////////////////////
@@ -59,7 +58,6 @@ function setup() {
   // audioPlayer.yOffset = -190;
   tree = new Tree();
   mouse = new Mouse();
-  curveTest = new CurveTest();
   // mode = "opening prompts";
 
   // Dev Mode
@@ -76,6 +74,8 @@ function draw() {
 
   // background(0);
 
+  line(50, 50, 100, 100);
+
   if (mode === "opening prompts") {
     openingPrompts.display();
     openingPrompts.input();
@@ -86,6 +86,5 @@ function draw() {
     // audioPlayer.trackFollow();
     tree.grow();
     tree.display();
-    // curveTest.display();
   }
 }

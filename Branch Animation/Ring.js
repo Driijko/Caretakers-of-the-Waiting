@@ -17,7 +17,7 @@ function Ring(startPoint) {
         }
 
         // Create Branches
-        if (this.frameCounter < 60 && frameCount % 5 === 0) {
+        if (this.frameCounter < 60 && frameCount % 3 === 0) {
             this.branches.push(
                 new Branch(
                     (width/2) + this.x,                                               
