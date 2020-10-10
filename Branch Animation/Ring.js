@@ -5,7 +5,6 @@ function Ring(startPoint) {
     this.yDir = 0;
     this.frameCounter = 0;
     this.branches = [];
-    let branchCount = 0;
 
     this.grow = function() {
         if (this.frameCounter < 60) {
@@ -23,7 +22,6 @@ function Ring(startPoint) {
                     (width/2) + this.x,                                               
                     this.y,
                     3, 
-                    // 6 - int(this.frameCounter * 0.1), 
                     (90 - (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180 : 0),  
                     150
                 )
