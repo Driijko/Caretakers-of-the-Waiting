@@ -1,5 +1,5 @@
 function Trunk(bottom, foundationWidth, height) {
-    this.halfWidth = Math.floor(foundationWidth/2);
+    const halfWidth = Math.floor(foundationWidth/2);
     this.trunkHeight = 0;
     this.maxTrunkHeight = height;
     this.bottom = bottom;
@@ -20,9 +20,9 @@ function Trunk(bottom, foundationWidth, height) {
             g.noStroke();
             g.fill(255);
             g.beginShape();
-            g.vertex((width/2) - this.halfWidth, this.bottom);
+            g.vertex((width/2) - halfWidth, this.bottom);
             g.bezierVertex(
-                (width/2) - this.halfWidth, 
+                (width/2) - halfWidth, 
                 this.bottom, 
                 (width/2) - 60, 
                 this.bottom, 
@@ -32,9 +32,9 @@ function Trunk(bottom, foundationWidth, height) {
             g.bezierVertex(
                 (width/2) + 60, 
                 this.bottom, 
-                (width/2) + this.halfWidth, 
+                (width/2) + halfWidth, 
                 this.bottom, 
-                (width/2) + this.halfWidth, 
+                (width/2) + halfWidth, 
                 this.bottom
             );
             g.endShape(CLOSE);
