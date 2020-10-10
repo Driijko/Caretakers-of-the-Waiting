@@ -54,7 +54,7 @@ function Branch(x, y, thickness, ang, len) {
             }
 
             g.strokeWeight(thickness);
-            g.stroke(255, 50);
+            g.stroke(255, 20);
             g.line(pos.x, pos.y, pos.x + dir.x, pos.y + dir.y);
             pos.add(dir);
 

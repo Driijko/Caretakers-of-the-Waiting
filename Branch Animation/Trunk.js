@@ -10,9 +10,6 @@ function Trunk(bottom, foundationWidth, height) {
         if (this.foundationHeight < this.maxFoundationHeight) {
             this.foundationHeight++;
         }
-        else if (this.lineHeight < (this.maxFoundationHeight / 2)) {
-            this.lineHeight ++;
-        }
         else {
             this.stage = "not growing";
         }        
@@ -41,17 +38,6 @@ function Trunk(bottom, foundationWidth, height) {
                 this.bottom
             );
             g.endShape(CLOSE);
-        }
-        else if (this.lineHeight < (this.maxFoundationHeight / 2)) {
-            g.stroke(255);
-            g.strokeWeight(10);
-            g.noFill();
-            g.line(
-                (width/2), 
-                this.bottom - this.maxFoundationHeight + 5,
-                (width/2),
-                this.bottom - this.maxFoundationHeight - this.lineHeight
-            )
         }
     }
 }

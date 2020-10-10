@@ -15,7 +15,8 @@ function Tree() {
     const trunk = new Trunk(apTop, 300, 40);
 
     // Ring
-    const ring = new Ring(apTop - trunk.maxFoundationHeight - (trunk.maxFoundationHeight / 2));
+    // const ring = new Ring(apTop - trunk.maxFoundationHeight - (trunk.maxFoundationHeight / 2));
+    const ring = new Ring(apTop - 45)
 
     this.grow = function() {
         if (this.stage === "trunk growth") {

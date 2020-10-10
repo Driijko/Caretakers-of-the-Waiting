@@ -38,13 +38,6 @@ function Ring(startPoint) {
                 )
             )
         }
-
-        // // Grow Branches
-        // if (this.branches.length > 0) {
-        //     this.branches.forEach(branch => {
-        //         branch.grow();
-        //     })
-        // }
     }
 
     this.display = function() {
