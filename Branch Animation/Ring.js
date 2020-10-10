@@ -49,15 +49,15 @@ function Ring(startPoint) {
 
     this.display = function() {
         if (this.frameCounter < 60) {
-            stroke(255);
-            strokeWeight(10 - (this.frameCounter / 6));
-            line(
+            g.stroke(255);
+            g.strokeWeight(10 - (this.frameCounter / 6));
+            g.line(
                 (width/2) + this.x, 
                 this.y, 
                 (width/2) + this.x + this.xDir,
                 this.y + this.yDir
             );
-            line (
+            g.line (
                 (width/2) - this.x, 
                 this.y, 
                 (width/2) - this.x - this.xDir,

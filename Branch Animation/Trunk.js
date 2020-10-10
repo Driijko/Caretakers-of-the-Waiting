@@ -20,11 +20,11 @@ function Trunk(bottom, foundationWidth, height) {
 
     this.display = function() {
         if (this.foundationHeight < this.maxFoundationHeight) {
-            noStroke();
-            fill(255);
-            beginShape();
-            vertex((width/2) - this.halfWidth, this.bottom);
-            bezierVertex(
+            g.noStroke();
+            g.fill(255);
+            g.beginShape();
+            g.vertex((width/2) - this.halfWidth, this.bottom);
+            g.bezierVertex(
                 (width/2) - this.halfWidth, 
                 this.bottom, 
                 (width/2) - 60, 
@@ -32,7 +32,7 @@ function Trunk(bottom, foundationWidth, height) {
                 (width/2), 
                 this.bottom - this.foundationHeight
             );
-            bezierVertex(
+            g.bezierVertex(
                 (width/2) + 60, 
                 this.bottom, 
                 (width/2) + this.halfWidth, 
@@ -40,13 +40,13 @@ function Trunk(bottom, foundationWidth, height) {
                 (width/2) + this.halfWidth, 
                 this.bottom
             );
-            endShape(CLOSE);
+            g.endShape(CLOSE);
         }
         else if (this.lineHeight < (this.maxFoundationHeight / 2)) {
-            stroke(255);
-            strokeWeight(10);
-            noFill();
-            line(
+            g.stroke(255);
+            g.strokeWeight(10);
+            g.noFill();
+            g.line(
                 (width/2), 
                 this.bottom - this.maxFoundationHeight + 5,
                 (width/2),

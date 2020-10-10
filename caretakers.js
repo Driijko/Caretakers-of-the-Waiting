@@ -1,4 +1,7 @@
-// Initialize Variables
+// Graphics Layer
+let g;
+
+// Initialize variables for objects
 let mode;
 let openingPrompts;
 let audioPlayer;
@@ -51,6 +54,9 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 
+  // Seperate Graphics Layer
+  g = createGraphics(windowWidth, windowHeight);
+
   // Define Variables
   openingPrompts = new OpeningPrompts();
   audioPlayer = new AudioPlayer();
@@ -72,9 +78,9 @@ function windowResized() {
 
 function draw() {
 
-  // background(0);
+  background(0);
 
-  line(50, 50, 100, 100);
+  image(g, 0, 0);
 
   if (mode === "opening prompts") {
     openingPrompts.display();
@@ -82,8 +88,8 @@ function draw() {
   }
   else if (mode === "opening animation") {
     audioPlayer.display();
-    // audioPlayer.input();
-    // audioPlayer.trackFollow();
+    audioPlayer.input();
+    audioPlayer.trackFollow();
     tree.grow();
     tree.display();
   }
