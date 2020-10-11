@@ -38,7 +38,7 @@ function Branch(x, y, thickness, ang, len) {
                 dir = p5.Vector.fromAngle(radians(angle)).mult(speed);
             }
 
-            if (frameCount % 30 === 0) {
+            if (frameCount % 50 === 0) {
                 if (length > 100) {
                     branches.push(
                         new Branch(
@@ -46,14 +46,14 @@ function Branch(x, y, thickness, ang, len) {
                             pos.y, 
                             thickness > 1 ? thickness - 1 : thickness, 
                             angle, 
-                            length - 30
+                            random(length - 60, length - 30)
                         )
                     )
                 }
             }
 
             g.strokeWeight(thickness);
-            g.stroke(255, 50);
+            g.stroke(255, 30);
             g.line(pos.x, pos.y, pos.x + dir.x, pos.y + dir.y);
             pos.add(dir);
 

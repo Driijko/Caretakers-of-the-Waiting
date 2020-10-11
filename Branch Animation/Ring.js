@@ -23,7 +23,7 @@ function Ring(startPoint) {
                     this.y,
                     3, 
                     (90 - (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180 : 0),  
-                    150
+                    random(150, 200)
                 )
             );
             this.branches.push(
@@ -32,7 +32,7 @@ function Ring(startPoint) {
                     this.y,
                     3,
                     (90 + (this.frameCounter * 2)) + (this.branches.length % 5 === 0 ? 180: 0),
-                    150
+                    random(150, 200)
                 )
             )
         }
