@@ -22,6 +22,11 @@ function PlaybackSection(layout) {
         timer.setTrackLength(this.trackLength);
     }
 
+    this.play = function() {
+        this.track.play();
+        playPauseButton.image = imPauseButton;
+    }
+
     this.input = function() {
 
         // Click play/pause button

@@ -1,3 +1,6 @@
+// Debugging
+let test = true;
+
 // Graphics Layer
 let g;
 
@@ -54,25 +57,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 
-  // Seperate Graphics Layer
-  g = createGraphics(windowWidth, windowHeight);
+
 
   // Define Variables
   openingPrompts = new OpeningPrompts();
-  audioPlayer = new AudioPlayer();
+  
   // audioPlayer = {};
   // audioPlayer.yOffset = -190;
-  tree = new Tree();
+  
   mouse = new Mouse();
-  // mode = "opening prompts";
+  mode = "opening prompts";
 
   // Dev Mode
-  mode = "opening animation";
+  // mode = "opening animation";
   frameRate(30);
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
 
 
@@ -80,17 +78,42 @@ function draw() {
 
   background(0);
 
-  image(g, 0, 0);
 
   if (mode === "opening prompts") {
     openingPrompts.display();
     openingPrompts.input();
   }
-  else if (mode === "opening animation") {
+  else if (mode === "initialize") {
+
+    // Seperate Graphics Layer
+    g = createGraphics(width, height);
+
+    // Create Objects
+    audioPlayer = new AudioPlayer();
+    if (openingPrompts.audioEnabled) {
+      audioPlayer.play();
+    }
+    tree = new Tree();
+
+    mode = "opening animation";
+  }
+  // We've moved past intialization
+  else {
+
+    // Display seperate graphics layer
+    image(g, 0, 0);
+
     audioPlayer.display();
     audioPlayer.input();
     audioPlayer.trackFollow();
-    tree.grow();
-    tree.display();
+
+    if (mode === "opening animation") {
+
+
+    }
+    else if (mode === "transistion to acts") {
+      tree.grow();
+      tree.display();
+    }
   }
 }

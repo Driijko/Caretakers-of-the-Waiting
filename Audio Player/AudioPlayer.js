@@ -27,7 +27,7 @@ function AudioPlayer() {
     }
 
     // Fade In
-    this.fadeIn = false;
+    this.fadeIn = true;
     let fadeInAlpha = 255;
 
     // Create parts of audio player
@@ -78,5 +78,9 @@ function AudioPlayer() {
 
     this.trackFollow = function() {
         playbackSection.trackFollow();
+    }
+
+    this.play = function() {
+        playbackSection.play();
     }
 }

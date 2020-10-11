@@ -14,4 +14,8 @@ function PlayPauseButton(layout) {
     this.display = function() {
         image(this.image, (width/2) + this.xOffset, height + this.yOffset, 40, 40);
     }
+
+    // this.setButtonToPauseImage = function() {
+    //     this.image = imPauseButton;
+    // }
 }

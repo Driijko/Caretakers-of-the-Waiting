@@ -1,6 +1,8 @@
 function OpeningPrompts() {
 
   let startButtonClicked = false;
+
+  this.audioEnabled = false;
   
   // Create Prompts and FadeOut (for FadeOut see helperfunctions.js)
   const fullScreenPrompt = new Prompt("Enable Fullscreen?", 0);
@@ -101,10 +103,11 @@ function OpeningPrompts() {
 
       // If user has selected enable audio option, begin playing theme music
       if (audioPrompt.selection === "yes") {
-        audioPlayer.play(auAct5);
+        this.audioEnabled = true;
       }
 
-      mode = "opening animation";
+      // mode = "opening animation";
+      mode = "initialize";
     }    
   }
 }
