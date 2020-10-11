@@ -4,11 +4,12 @@ let test = true;
 // Graphics Layer
 let g;
 
-// Initialize variables for objects
+// Declare variables for objects
 let mode;
 let openingPrompts;
 let audioPlayer;
 let tree;
+let poster;
 let mouse;
 
 // Audio /////////////////////////////////////////////////////////////
@@ -23,6 +24,8 @@ let auAct4;
 let auAct5;
 
 // Images //////////////////////////////////////////////////////////
+// Poster Art
+let imPoster;
 // Icons
 let imPlayButton;
 let imPauseButton;
@@ -41,6 +44,9 @@ function preload() {
   // auAct4 = loadSound("./assets/audio/acts and music/act4.mp3");
   // auAct5 = loadSound("./assets/audio/acts and music/act5.mp3");
 
+  // Poster Art
+  imPoster = loadImage("./assets/images/poster art/mainPoster.jpg");
+
   // Audio Player Icons
   imPlayButton = loadImage("./assets/images/icons/play.svg");
   imPauseButton = loadImage("./assets/images/icons/pause.svg");
@@ -57,19 +63,16 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 
-
-
-  // Define Variables
+  // Intialize objects unaffected by transistion to fullscreen
+  poster = new Poster();
   openingPrompts = new OpeningPrompts();
   
-  // audioPlayer = {};
-  // audioPlayer.yOffset = -190;
-  
   mouse = new Mouse();
-  mode = "opening prompts";
+
+  // mode = "opening poster";
 
   // Dev Mode
-  // mode = "opening animation";
+  mode = "initialize";
   frameRate(30);
 }
 
@@ -78,11 +81,15 @@ function draw() {
 
   background(0);
 
-
-  if (mode === "opening prompts") {
+  ///////////////////////////////////////////////////////
+  if (mode === "opening poster") {
+    poster.display();
+    poster.input();
+  }
+  else if (mode === "opening prompts") {
     openingPrompts.display();
     openingPrompts.input();
-  }
+  } //////////////////////////////////////////////////////
   else if (mode === "initialize") {
 
     // Seperate Graphics Layer
@@ -96,24 +103,21 @@ function draw() {
     tree = new Tree();
 
     mode = "opening animation";
-  }
+  } ///////////////////////////////////////////////////////////
   // We've moved past intialization
   else {
 
     // Display seperate graphics layer
     image(g, 0, 0);
 
-    audioPlayer.display();
-    audioPlayer.input();
-    audioPlayer.trackFollow();
-
+    ////////////////////////////////////////////////////////////
     if (mode === "opening animation") {
-
-
-    }
-    else if (mode === "transistion to acts") {
+      audioPlayer.display();
+      audioPlayer.input();
+      audioPlayer.trackFollow();
       tree.grow();
       tree.display();
-    }
+
+    } ///////////////////////////////////////////////////////////
   }
 }
