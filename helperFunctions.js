@@ -17,6 +17,19 @@ function collidePointCircle(x, y, cx, cy, d) {
     return false;
 }
 
+function collidePointEllipse (x, y, cx, cy, dx, dy) {
+    //2d
+    let rx = dx/2, ry = dy/2;
+    // Discarding the points outside the bounding box
+    if (x > cx + rx || x < cx - rx ||y > cy + ry || y < cy - ry) {
+          return false;
+    }
+    // Compare the point to its equivalent on the ellipse
+    let xx = x - cx, yy = y - cy;
+    let eyy = ry * this.sqrt(this.abs(rx * rx - xx * xx)) / rx;
+    return yy <= eyy && yy >= -eyy;
+  };
+
 function transistionToFullScreen() {
     resizeCanvas(screen.width, screen.height);
     fullscreen(true);
