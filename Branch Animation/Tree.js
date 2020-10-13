@@ -1,7 +1,8 @@
 function Tree() {
 
     // Position relative to audio player
-    const apTop = height + audioPlayer.yOffset
+    // const apTop = height + audioPlayer.yOffset
+    const apTop = height - 190;
 
     this.stage = "trunk growth";
 

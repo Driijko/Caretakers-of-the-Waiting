@@ -10,6 +10,7 @@ let openingPrompts;
 let audioPlayer;
 let tree;
 let poster;
+let act;
 let mouse;
 
 // Audio /////////////////////////////////////////////////////////////
@@ -33,10 +34,10 @@ let imMuteButton;
 let imFullVolumeButton;
 
 function preload() {
-  auStartButton = loadSound("./assets/audio/startButton.wav");
+  // auStartButton = loadSound("./assets/audio/startButton.wav");
 
   // Acts and Theme Music
-  auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
+  // auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
   // auThemeMusic.setLoop(true);
   // auAct1 = loadSound("./assets/audio/acts and music/act1.mp3");
   // auAct2 = loadSound("./assets/audio/acts and music/act2.mp3");
@@ -96,11 +97,12 @@ function draw() {
     g = createGraphics(width, height);
 
     // Create Objects
-    audioPlayer = new AudioPlayer();
-    if (openingPrompts.audioEnabled) {
-      audioPlayer.play();
-    }
+    // audioPlayer = new AudioPlayer();
+    // if (openingPrompts.audioEnabled) {
+    //   audioPlayer.play();
+    // }
     tree = new Tree();
+    act = new Act("1", "Seeds");
 
     mode = "opening animation";
   } ///////////////////////////////////////////////////////////
@@ -112,11 +114,12 @@ function draw() {
 
     ////////////////////////////////////////////////////////////
     if (mode === "opening animation") {
-      audioPlayer.display();
-      audioPlayer.input();
-      audioPlayer.trackFollow();
+      // audioPlayer.display();
+      // audioPlayer.input();
+      // audioPlayer.trackFollow();
       tree.grow();
       tree.display();
+      act.display();
 
     } ///////////////////////////////////////////////////////////
   }
