@@ -1,5 +1,7 @@
 function AudioPlayer() {
 
+    this.track = auThemeMusic;
+
     // Layout
     // The layout variable is assigned an integer which identifies
     // what type of layout we want for the audio player's display.
@@ -31,17 +33,18 @@ function AudioPlayer() {
     let fadeInAlpha = 255;
 
     // Create parts of audio player
-    const playbackSection = new PlaybackSection(this.layout);
-    const volumeSection = new VolumeSection(this.layout);
+    const playbackSection = new PlaybackSection(this.layout, this.track);
+    const volumeSection = new VolumeSection(this.layout, this.track);
     const trackTitle = new TrackTitle(this.layout);
 
-    this.setTrack = function(track) {
-        trackTitle.title = "Main Theme";
-        playbackSection.setTrack(track); 
-        volumeSection.track = track;
+    this.setTrack = function(filePath, title) {
+        this.track = loadSound(filePath);
+        trackTitle.title = title;
+        playbackSection.setTrack(this.track); 
+        volumeSection.track = this.track;
     }
     
-    this.setTrack(auThemeMusic);
+    // this.setTrack(auThemeMusic);
 
     this.display = function() {
 

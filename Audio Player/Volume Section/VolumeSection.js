@@ -1,4 +1,6 @@
-function VolumeSection(layout) {
+function VolumeSection(layout, defaultTrack) {
+
+    this.track = defaultTrack;
 
     this.sliderDrag = false; // Set this to "true" to allow user to drag slider with mouse
 

@@ -32,4 +32,10 @@ function Act(num, title) {
             text(`${this.title}`, (width/2) - 95, 120, 200, 100);
         }
     }
+
+    this.input = function() {
+        // if (mouseIsPressed) {
+        //     audioPlayer.setTrack(fpAct1, "Act 1: Seeds");
+        // }
+    }
 }

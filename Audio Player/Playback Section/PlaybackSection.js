@@ -1,5 +1,7 @@
-function PlaybackSection(layout) {
+function PlaybackSection(layout, defaultTrack) {
  
+    this.track = defaultTrack;
+    this.trackLength = Math.floor(this.track.duration());
     this.sliderDrag = false; // Set to "true" to allow user to drag slider with mouse
     this.trackWasPlaying = false; // Used for when track is paused while user drags slider
 
@@ -7,6 +9,7 @@ function PlaybackSection(layout) {
     const playPauseButton = new PlayPauseButton(layout);
     const playbackSlider = new PlaybackSlider(layout);
     const timer = new Timer(layout);
+    timer.setTrackLength(this.trackLength)
 
     this.display = function() {
         playPauseButton.display();
@@ -16,9 +19,9 @@ function PlaybackSection(layout) {
 
     // This function is called within the 'setTrack' function of the 
     // AudioPlayer object
-    this.setTrack = function(track) {
-        this.track = track;
-        this.trackLength = Math.floor(track.duration());
+    this.setTrack = function(filePath) {
+        this.track = loadSound(filePath);
+        this.trackLength = Math.floor(this.track.duration());
         timer.setTrackLength(this.trackLength);
     }
 

@@ -13,6 +13,10 @@ let poster;
 let act;
 let mouse;
 
+// ASSETS ///////////////////////////////////////////////////////////////////////////////////////
+// Audio File Paths
+const fpAct1 = "./assets/audio/acts and music/act1.mp3";
+
 // Audio /////////////////////////////////////////////////////////////
 let auStartButton;
 
@@ -135,6 +139,7 @@ function draw() {
       tree.grow();
       tree.display();
       act.display();
+      act.input();
 
     } ///////////////////////////////////////////////////////////
   }
