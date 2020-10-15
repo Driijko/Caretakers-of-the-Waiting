@@ -7,16 +7,18 @@ function Ring(startPoint) {
     this.branches = [];
 
     this.grow = function() {
-        if (this.frameCounter < 60) {
+        if (this.frameCounter < 120) {
             this.frameCounter++;
-            this.x += this.xDir;
-            this.y -= this.yDir;
-            this.xDir -= 0.11;
-            this.yDir += 0.11;
+            if (frameCount % 2 === 0) {
+                this.x += this.xDir;
+                this.y -= this.yDir;
+                this.xDir -= 0.11;
+                this.yDir += 0.11;
+            }
         }
 
         // Create Branches
-        if (this.frameCounter < 60 && frameCount % 3 === 0) {
+        if (this.frameCounter < 120 && frameCount % 3 === 0) {
             this.branches.push(
                 new Branch(
                     (width/2) + this.x,                                               
@@ -39,9 +41,9 @@ function Ring(startPoint) {
     }
 
     this.display = function() {
-        if (this.frameCounter < 60) {
-            g.stroke(255);
-            g.strokeWeight(10 - (this.frameCounter / 6));
+        if (this.frameCounter < 120) {
+            g.stroke(255, 10);
+            g.strokeWeight(10 - ((this.frameCounter - 60) / 6));
             g.line(
                 (width/2) + this.x, 
                 this.y, 

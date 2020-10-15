@@ -8,7 +8,9 @@ function Trunk(bottom, foundationWidth, height) {
 
     this.grow = function() {
         if (this.trunkHeight < this.maxTrunkHeight) {
-            this.trunkHeight++;
+            if (frameCount % 2 === 0) {
+                this.trunkHeight++;
+            }
         }
         else {
             this.stage = "not growing";

@@ -17,12 +17,13 @@ let mouse;
 let auStartButton;
 
 // Acts and Theme Music
-let auThemeMusic;
-let auAct1;
-let auAct2;
-let auAct3;
-let auAct4;
-let auAct5;
+// let auThemeMusic;
+// let auAct1;
+// let auAct2;
+// let auAct3;
+// let auAct4;
+// let auAct5;
+let audio = [];
 
 // Images //////////////////////////////////////////////////////////
 // Poster Art
@@ -49,15 +50,29 @@ function preload() {
   imPoster = loadImage("./assets/images/poster art/mainPoster.jpg");
 
   // Audio Player Icons
-  imPlayButton = loadImage("./assets/images/icons/play.svg");
-  imPauseButton = loadImage("./assets/images/icons/pause.svg");
-  imMuteButton = loadImage("./assets/images/icons/mute.svg");
-  imFullVolumeButton = loadImage("./assets/images/icons/fullVolume.svg");
+  // imPlayButton = loadImage("./assets/images/icons/play.svg");
+  // imPauseButton = loadImage("./assets/images/icons/pause.svg");
+  // imMuteButton = loadImage("./assets/images/icons/mute.svg");
+  // imFullVolumeButton = loadImage("./assets/images/icons/fullVolume.svg");
 }
 
 
 
 function setup() {
+
+  // Opening Prompts Start Button
+  auStartButton = loadSound("./assets/audio/startButton.wav");
+
+  // Audio Player Icons
+  imPlayButton = loadImage("./assets/images/icons/play.svg");
+  imPauseButton = loadImage("./assets/images/icons/pause.svg");
+  imMuteButton = loadImage("./assets/images/icons/mute.svg");
+  imFullVolumeButton = loadImage("./assets/images/icons/fullVolume.svg");
+
+
+  // Load Acts and Theme Music
+  auThemeMusic = loadSound("./assets/audio/acts and music/themeMusic.mp3");
+  auThemeMusic.setLoop(true);
 
   // Initial view
   document.documentElement.style.overflow = "hidden";
@@ -70,10 +85,10 @@ function setup() {
   
   mouse = new Mouse();
 
-  // mode = "opening poster";
+  mode = "opening poster";
 
   // Dev Mode
-  mode = "initialize";
+  // mode = "initialize";
   frameRate(30);
 }
 
@@ -97,10 +112,10 @@ function draw() {
     g = createGraphics(width, height);
 
     // Create Objects
-    // audioPlayer = new AudioPlayer();
-    // if (openingPrompts.audioEnabled) {
-    //   audioPlayer.play();
-    // }
+    audioPlayer = new AudioPlayer();
+    if (openingPrompts.audioEnabled) {
+      audioPlayer.play();
+    }
     tree = new Tree();
     act = new Act("1", "Seeds");
 
@@ -114,9 +129,9 @@ function draw() {
 
     ////////////////////////////////////////////////////////////
     if (mode === "opening animation") {
-      // audioPlayer.display();
-      // audioPlayer.input();
-      // audioPlayer.trackFollow();
+      audioPlayer.display();
+      audioPlayer.input();
+      audioPlayer.trackFollow();
       tree.grow();
       tree.display();
       act.display();
