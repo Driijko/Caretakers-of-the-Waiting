@@ -42,7 +42,7 @@ function Ring(startPoint) {
 
     this.display = function() {
         if (this.frameCounter < 120) {
-            g.stroke(255, 10);
+            g.stroke(255, 60);
             g.strokeWeight(10 - ((this.frameCounter - 60) / 6));
             g.line(
                 (width/2) + this.x, 
