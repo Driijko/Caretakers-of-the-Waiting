@@ -1,6 +1,8 @@
 function AudioPlayer() {
 
     this.track = auThemeMusic;
+    this.isTrackLoading = false;
+    this.trackTitle = "Main Theme";
 
     // Layout
     // The layout variable is assigned an integer which identifies
@@ -37,11 +39,20 @@ function AudioPlayer() {
     const volumeSection = new VolumeSection(this.layout, this.track);
     const trackTitle = new TrackTitle(this.layout);
 
-    this.setTrack = function(filePath, title) {
+    this.loadTrack = function(filePath, title) {
         this.track = loadSound(filePath);
-        trackTitle.title = title;
-        playbackSection.setTrack(this.track); 
-        volumeSection.track = this.track;
+        trackTitle.title = "... loading";
+        this.trackTitle = title;
+        this.isTrackLoading = true;
+    }
+
+    this.registerTrack = function() {
+        if (this.isTrackLoading && this.track.isLoaded()) {
+            trackTitle.title = this.trackTitle;
+            playbackSection.setTrack(this.track); 
+            volumeSection.track = this.track;
+            this.isTrackLoading = false;
+        }
     }
     
     // this.setTrack(auThemeMusic);

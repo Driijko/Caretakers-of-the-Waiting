@@ -89,10 +89,10 @@ function setup() {
   
   mouse = new Mouse();
 
-  mode = "opening poster";
+  // mode = "opening poster";
 
   // Dev Mode
-  // mode = "initialize";
+  mode = "initialize";
   frameRate(30);
 }
 
@@ -136,6 +136,7 @@ function draw() {
       audioPlayer.display();
       audioPlayer.input();
       audioPlayer.trackFollow();
+      audioPlayer.registerTrack();
       tree.grow();
       tree.display();
       act.display();

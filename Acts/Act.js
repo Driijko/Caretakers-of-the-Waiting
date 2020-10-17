@@ -34,8 +34,13 @@ function Act(num, title) {
     }
 
     this.input = function() {
-        // if (mouseIsPressed) {
-        //     audioPlayer.setTrack(fpAct1, "Act 1: Seeds");
-        // }
+        if (mouseIsPressed
+            && mouse.readyForNextClick
+            && collidePointEllipse(mouseX, mouseY, (width/2), 150, 200, 150)
+            
+        ) {
+            mouse.click();
+            audioPlayer.loadTrack(`../assets/audio/acts and music/act${this.num}.mp3`, `Act ${this.num}: ${this.title}`);
+        }
     }
 }

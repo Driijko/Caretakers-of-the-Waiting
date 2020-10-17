@@ -19,8 +19,8 @@ function PlaybackSection(layout, defaultTrack) {
 
     // This function is called within the 'setTrack' function of the 
     // AudioPlayer object
-    this.setTrack = function(filePath) {
-        this.track = loadSound(filePath);
+    this.setTrack = function(track) {
+        this.track = track;
         this.trackLength = Math.floor(this.track.duration());
         timer.setTrackLength(this.trackLength);
     }
