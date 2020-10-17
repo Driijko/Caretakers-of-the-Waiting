@@ -1,12 +1,22 @@
 function ActSpot() {
-    this.content = "Act 1";
+    this.content = new Act("1", "Seeds");
+    this.actSwapButtonLeft = new ActSwapButton("left");
+    this.actSwapButtonRight = new ActSwapButton("right");
 
     this.input = function() {
-        if (
-            mouseIsPressed
-            && collidePointEllipse(mouseX, mouseY, (width/2), 150, 200, 150
-        ) {
-            
+        this.content.input();
+    }
+
+    this.display = function() {
+
+        if (this.content.num !== 1) {
+            this.actSwapButtonLeft.display();
         }
+
+        if (this.content.num !== 0) {
+            this.actSwapButtonRight.display();
+        }
+        
+        this.content.display();
     }
 }

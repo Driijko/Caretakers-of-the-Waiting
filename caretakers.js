@@ -121,7 +121,8 @@ function draw() {
       audioPlayer.play();
     }
     tree = new Tree();
-    act = new Act("1", "Seeds");
+    actSpot = new ActSpot();
+    // act = new Act("1", "Seeds");
 
     mode = "opening animation";
   } ///////////////////////////////////////////////////////////
@@ -139,9 +140,8 @@ function draw() {
       audioPlayer.registerTrack();
       tree.grow();
       tree.display();
-      act.display();
-      act.input();
-
+      actSpot.input();
+      actSpot.display();
     } ///////////////////////////////////////////////////////////
   }
 }
